@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppHotel.Views.HospedagemContratada"
+             Title="Resumo da hospedagem" NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource Fundo}">
+  <ScrollView>
+    <VerticalStackLayout Padding="18,25,18,34" Spacing="18" MaximumWidthRequest="560" HorizontalOptions="Center">
+      <Button Text="‹  Voltar" Clicked="OnVoltarClicked" BackgroundColor="Transparent" TextColor="{StaticResource Marinho}"
+              HorizontalOptions="Start" HeightRequest="38" Padding="0,0" FontSize="14" />
+      <Border BackgroundColor="{StaticResource Marinho}" StrokeThickness="0" StrokeShape="RoundRectangle 22" Padding="24">
+        <VerticalStackLayout Spacing="8">
+          <Label Text="SUA SIMULAÇÃO" TextColor="#7DE6DB" FontAttributes="Bold" FontSize="11" CharacterSpacing="1.5" />
+          <Label Text="Resumo da estadia" FontAttributes="Bold" TextColor="White" FontSize="29" />
+          <Label Text="Confira os detalhes antes de finalizar sua escolha." TextColor="#D8E3E8" FontSize="13" />
+        </VerticalStackLayout>
+      </Border>
+      <Border Stroke="{StaticResource Borda}" StrokeThickness="1" StrokeShape="RoundRectangle 18" BackgroundColor="White" Padding="20">
+        <VerticalStackLayout Spacing="13">
+          <Label Text="ACOMODAÇÃO" FontSize="11" FontAttributes="Bold" TextColor="{StaticResource VerdeAgua}" CharacterSpacing="1" />
+          <Label Text="{Binding QuartoSelecionado.Nome}" FontSize="23" FontAttributes="Bold" />
+          <Label Text="{Binding QuartoSelecionado.Descricao}" FontSize="13" TextColor="{StaticResource TextoSecundario}" />
+          <BoxView HeightRequest="1" Color="{StaticResource Borda}" />
+          <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto" RowSpacing="13">
+            <Label Text="Hóspedes" FontSize="13" TextColor="{StaticResource TextoSecundario}" />
+            <Label Grid.Column="1" Text="{Binding HospedesFormatados}" FontSize="13" FontAttributes="Bold" HorizontalTextAlignment="End" />
+            <Label Grid.Row="1" Text="Período" FontSize="13" TextColor="{StaticResource TextoSecundario}" />
+            <Label Grid.Row="1" Grid.Column="1" Text="{Binding PeriodoFormatado}" FontSize="13" FontAttributes="Bold" HorizontalTextAlignment="End" />
+            <Label Grid.Row="2" Text="Duração" FontSize="13" TextColor="{StaticResource TextoSecundario}" />
+            <Label Grid.Row="2" Grid.Column="1" Text="{Binding NoitesFormatadas}" FontSize="13" FontAttributes="Bold" HorizontalTextAlignment="End" />
+          </Grid>
+          <BoxView HeightRequest="1" Color="{StaticResource Borda}" />
+          <Grid ColumnDefinitions="*,Auto">
+            <VerticalStackLayout Spacing="2">
+              <Label Text="VALOR ESTIMADO" FontSize="11" TextColor="{StaticResource TextoSecundario}" FontAttributes="Bold" />
+              <Label Text="{Binding ValorDiariaFormatado, StringFormat='Diária de {0}'}" FontSize="12" TextColor="{StaticResource TextoSecundario}" />
+            </VerticalStackLayout>
+            <Label Grid.Column="1" Text="{Binding ValorTotalFormatado}" FontSize="25" FontAttributes="Bold" TextColor="{StaticResource VerdeAgua}" />
+          </Grid>
+        </VerticalStackLayout>
+      </Border>
+      <Label Text="Os valores são ilustrativos. Esta atividade não registra uma reserva real." HorizontalTextAlignment="Center" TextColor="{StaticResource TextoSecundario}" FontSize="12" />
+      <Button Text="Editar hospedagem" Clicked="OnVoltarClicked" BackgroundColor="{StaticResource VerdeAgua}" TextColor="White" FontAttributes="Bold" />
+      <Button Text="Sobre o aplicativo" Clicked="OnSobreClicked" BackgroundColor="White" TextColor="{StaticResource Marinho}" BorderColor="{StaticResource Borda}" BorderWidth="1" />
+    </VerticalStackLayout>
+  </ScrollView>
+</ContentPage>

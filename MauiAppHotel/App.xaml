@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppHotel.App">
+  <Application.Resources>
+    <ResourceDictionary>
+      <Color x:Key="Marinho">#172D40</Color>
+      <Color x:Key="MarinhoProfundo">#102435</Color>
+      <Color x:Key="VerdeAgua">#16A59D</Color>
+      <Color x:Key="VerdeClaro">#E9F7F5</Color>
+      <Color x:Key="Fundo">#F3F6F8</Color>
+      <Color x:Key="Texto">#172D40</Color>
+      <Color x:Key="TextoSecundario">#657685</Color>
+      <Color x:Key="Borda">#E6ECF0</Color>
+      <Style TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource Texto}" />
+      </Style>
+      <Style TargetType="Button">
+        <Setter Property="CornerRadius" Value="13" />
+        <Setter Property="HeightRequest" Value="52" />
+      </Style>
+    </ResourceDictionary>
+  </Application.Resources>
+</Application>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppHotel.Views.ContratacaoHospedagem"
+             Title="App Hotel - Reservar"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource Fundo}">
+  <ScrollView>
+    <VerticalStackLayout Padding="18,22,18,32" Spacing="18" MaximumWidthRequest="560" HorizontalOptions="Center">
+      <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12">
+        <HorizontalStackLayout Spacing="9" VerticalOptions="Center">
+          <Border BackgroundColor="{StaticResource Marinho}" StrokeThickness="0" StrokeShape="RoundRectangle 12" WidthRequest="40" HeightRequest="40">
+            <Label Text="H" TextColor="White" FontAttributes="Bold" FontSize="23" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+          </Border>
+          <VerticalStackLayout Spacing="0" VerticalOptions="Center">
+            <Label Text="APP HOTEL" FontSize="16" FontAttributes="Bold" CharacterSpacing="1"/>
+            <Label Text="AGENDA 13 • ETEC" FontSize="10" TextColor="{StaticResource TextoSecundario}" CharacterSpacing="1.1"/>
+          </VerticalStackLayout>
+        </HorizontalStackLayout>
+        <Button Grid.Column="1" Text="Sobre" Clicked="OnSobreClicked" FontSize="13"
+                BackgroundColor="White" TextColor="{StaticResource Marinho}" BorderColor="{StaticResource Borda}" BorderWidth="1"
+                WidthRequest="83" HeightRequest="40" Padding="10,4" VerticalOptions="Center"
+                SemanticProperties.Description="Abrir tela Sobre o aplicativo" />
+      </Grid>
+
+      <Border StrokeThickness="0" StrokeShape="RoundRectangle 24" BackgroundColor="{StaticResource Marinho}" Padding="22,22,22,22">
+        <VerticalStackLayout Spacing="10">
+          <Label Text="SUA ESTADIA COMEÇA AQUI" TextColor="#7DE6DB" FontSize="11" CharacterSpacing="1.7" FontAttributes="Bold"/>
+          <Label Text="Reserve com simplicidade." TextColor="White" FontSize="29" FontAttributes="Bold" LineBreakMode="WordWrap" />
+          <Label Text="Escolha o quarto, informe os hóspedes e simule o valor da hospedagem."
+                 TextColor="#D8E3E8" FontSize="13" LineBreakMode="WordWrap" />
+          <Image Source="hotel_front.svg" HeightRequest="115" HorizontalOptions="Fill" Aspect="AspectFit" Margin="0,3,0,0"/>
+        </VerticalStackLayout>
+      </Border>
+
+      <Label Text="Configure sua hospedagem" FontSize="21" FontAttributes="Bold" Margin="1,2,0,0"/>
+
+      <Border Stroke="{StaticResource Borda}" StrokeThickness="1" StrokeShape="RoundRectangle 19" BackgroundColor="White" Padding="18">
+        <VerticalStackLayout Spacing="15">
+          <Label Text="01   HÓSPEDES" FontSize="12" FontAttributes="Bold" TextColor="{StaticResource VerdeAgua}" CharacterSpacing="1" />
+          <Grid ColumnDefinitions="*,Auto,Auto" ColumnSpacing="9" RowDefinitions="Auto,Auto" RowSpacing="16">
+            <VerticalStackLayout Grid.Row="0" Spacing="2" VerticalOptions="Center">
+              <Label Text="Adultos" FontAttributes="Bold" FontSize="15" />
+              <Label Text="A partir de 18 anos" TextColor="{StaticResource TextoSecundario}" FontSize="11" />
+            </VerticalStackLayout>
+            <Label Grid.Row="0" Grid.Column="1" BindingContext="{x:Reference stp_adultos}"
+                   Text="{Binding Value, StringFormat='{0:0}'}" FontSize="18" FontAttributes="Bold" TextColor="{StaticResource Marinho}"
+                   WidthRequest="24" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+            <Stepper Grid.Row="0" Grid.Column="2" x:Name="stp_adultos" Minimum="1" Maximum="8" Increment="1" Value="2" />
+
+            <VerticalStackLayout Grid.Row="1" Spacing="2" VerticalOptions="Center">
+              <Label Text="Crianças" FontAttributes="Bold" FontSize="15" />
+              <Label Text="Até 17 anos" TextColor="{StaticResource TextoSecundario}" FontSize="11" />
+            </VerticalStackLayout>
+            <Label Grid.Row="1" Grid.Column="1" BindingContext="{x:Reference stp_criancas}"
+                   Text="{Binding Value, StringFormat='{0:0}'}" FontSize="18" FontAttributes="Bold" TextColor="{StaticResource Marinho}"
+                   WidthRequest="24" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+            <Stepper Grid.Row="1" Grid.Column="2" x:Name="stp_criancas" Minimum="0" Maximum="8" Increment="1" Value="0" />
+          </Grid>
+        </VerticalStackLayout>
+      </Border>
+
+      <Border Stroke="{StaticResource Borda}" StrokeThickness="1" StrokeShape="RoundRectangle 19" BackgroundColor="White" Padding="18">
+        <VerticalStackLayout Spacing="12">
+          <Label Text="02   ACOMODAÇÃO" FontSize="12" FontAttributes="Bold" TextColor="{StaticResource VerdeAgua}" CharacterSpacing="1" />
+          <Label Text="Escolha seu quarto" FontSize="16" FontAttributes="Bold" />
+          <Picker x:Name="pck_quarto" Title="Selecione sua acomodação" ItemsSource="{Binding Quartos}"
+                  ItemDisplayBinding="{Binding NomeComPreco}" BackgroundColor="{StaticResource Fundo}" TextColor="{StaticResource Texto}" HeightRequest="50" />
+          <Label Text="Tarifas fictícias para demonstração acadêmica." FontSize="11" TextColor="{StaticResource TextoSecundario}" />
+        </VerticalStackLayout>
+      </Border>
+
+      <Border Stroke="{StaticResource Borda}" StrokeThickness="1" StrokeShape="RoundRectangle 19" BackgroundColor="White" Padding="18">
+        <VerticalStackLayout Spacing="12">
+          <Label Text="03   PERÍODO" FontSize="12" FontAttributes="Bold" TextColor="{StaticResource VerdeAgua}" CharacterSpacing="1" />
+          <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+            <VerticalStackLayout Spacing="5">
+              <Label Text="Check-in" FontSize="13" FontAttributes="Bold" />
+              <DatePicker x:Name="dtpck_checkin" Format="dd/MM/yyyy" DateSelected="OnCheckinDateSelected"
+                          BackgroundColor="{StaticResource Fundo}" TextColor="{StaticResource Texto}" FontSize="13" HeightRequest="50" />
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Column="1" Spacing="5">
+              <Label Text="Check-out" FontSize="13" FontAttributes="Bold" />
+              <DatePicker x:Name="dtpck_checkout" Format="dd/MM/yyyy"
+                          BackgroundColor="{StaticResource Fundo}" TextColor="{StaticResource Texto}" FontSize="13" HeightRequest="50" />
+            </VerticalStackLayout>
+          </Grid>
+        </VerticalStackLayout>
+      </Border>
+
+      <Button Text="Ver resumo da estadia" BackgroundColor="{StaticResource VerdeAgua}" TextColor="White"
+              FontAttributes="Bold" FontSize="15" Clicked="OnAvancarClicked" />
+      <Label Text="Projeto acadêmico • Simulador sem reservas reais" FontSize="11" TextColor="{StaticResource TextoSecundario}" HorizontalTextAlignment="Center" />
+    </VerticalStackLayout>
+  </ScrollView>
+</ContentPage>

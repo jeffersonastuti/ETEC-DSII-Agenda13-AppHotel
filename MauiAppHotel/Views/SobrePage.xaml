@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppHotel.Views.SobrePage"
+             Title="Sobre" NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource Fundo}">
+  <ScrollView>
+    <VerticalStackLayout Padding="18,25,18,35" Spacing="18" MaximumWidthRequest="560" HorizontalOptions="Center">
+      <Button Text="‹  Voltar" Clicked="OnVoltarClicked" BackgroundColor="Transparent" TextColor="{StaticResource Marinho}"
+              HorizontalOptions="Start" HeightRequest="38" Padding="0,0" FontSize="14" />
+      <Border BackgroundColor="{StaticResource Marinho}" StrokeThickness="0" StrokeShape="RoundRectangle 24" Padding="24,25,24,23">
+        <VerticalStackLayout Spacing="12">
+          <Border BackgroundColor="{StaticResource VerdeAgua}" WidthRequest="54" HeightRequest="54" StrokeThickness="0" StrokeShape="RoundRectangle 15" HorizontalOptions="Start">
+            <Label Text="H" TextColor="White" FontSize="32" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+          </Border>
+          <Label Text="CONHEÇA O PROJETO" TextColor="#7DE6DB" FontAttributes="Bold" FontSize="11" CharacterSpacing="1.6" />
+          <Label Text="Sobre o App Hotel" TextColor="White" FontSize="30" FontAttributes="Bold" />
+          <Label Text="Uma experiência simples para aprender a criar interfaces móveis com .NET MAUI."
+                 TextColor="#D8E3E8" FontSize="13" />
+          <Border BackgroundColor="#294359" StrokeThickness="0" StrokeShape="RoundRectangle 10" HorizontalOptions="Start" Padding="12,6" Margin="0,4,0,0">
+            <Label Text="VERSÃO 1.0 • 2026" FontSize="11" TextColor="White" CharacterSpacing="1" FontAttributes="Bold" />
+          </Border>
+        </VerticalStackLayout>
+      </Border>
+
+      <Border Stroke="{StaticResource Borda}" StrokeThickness="1" StrokeShape="RoundRectangle 19" BackgroundColor="White" Padding="21">
+        <VerticalStackLayout Spacing="14">
+          <Label Text="DESENVOLVIMENTO" TextColor="{StaticResource VerdeAgua}" FontAttributes="Bold" CharacterSpacing="1" FontSize="11" />
+          <Label Text="Jefferson Astuti Magalhães de Barros" FontSize="21" FontAttributes="Bold" LineBreakMode="WordWrap" />
+          <BoxView HeightRequest="1" Color="{StaticResource Borda}" />
+          <Grid ColumnDefinitions="95,*" RowDefinitions="Auto,Auto,Auto" RowSpacing="13" ColumnSpacing="8">
+            <Label Text="Ano" FontSize="13" TextColor="{StaticResource TextoSecundario}" />
+            <Label Grid.Column="1" Text="2026" FontSize="13" FontAttributes="Bold" />
+            <Label Grid.Row="1" Text="Curso" FontSize="13" TextColor="{StaticResource TextoSecundario}" />
+            <Label Grid.Row="1" Grid.Column="1" Text="Técnico em Desenvolvimento de Sistemas" FontSize="13" FontAttributes="Bold" LineBreakMode="WordWrap" />
+            <Label Grid.Row="2" Text="Atividade" FontSize="13" TextColor="{StaticResource TextoSecundario}" />
+            <Label Grid.Row="2" Grid.Column="1" Text="Desenvolvimento de Sistemas II - Agenda 13" FontSize="13" FontAttributes="Bold" LineBreakMode="WordWrap" />
+          </Grid>
+        </VerticalStackLayout>
+      </Border>
+
+      <Border Stroke="{StaticResource Borda}" StrokeThickness="1" StrokeShape="RoundRectangle 19" BackgroundColor="White" Padding="21">
+        <VerticalStackLayout Spacing="10">
+          <Label Text="O QUE ESTE APP DEMONSTRA" TextColor="{StaticResource VerdeAgua}" FontAttributes="Bold" CharacterSpacing="1" FontSize="11" />
+          <Label Text="Componentes gráficos: Stepper, Picker e DatePicker." FontSize="13" />
+          <Label Text="Layouts organizados com Grid, Border e StackLayout." FontSize="13" />
+          <Label Text="Vinculação de dados com BindingContext e XAML." FontSize="13" />
+          <Label Text="Navegação entre telas e resumo de hospedagem." FontSize="13" />
+        </VerticalStackLayout>
+      </Border>
+
+      <Border BackgroundColor="{StaticResource VerdeClaro}" StrokeThickness="0" StrokeShape="RoundRectangle 16" Padding="17">
+        <VerticalStackLayout Spacing="6">
+          <Label Text="REFERÊNCIA DIDÁTICA" FontAttributes="Bold" FontSize="11" TextColor="{StaticResource VerdeAgua}" CharacterSpacing="1" />
+          <Label Text="ETEC / Centro Paula Souza • Programação Mobile I" FontSize="12" FontAttributes="Bold" />
+          <Label Text="Agenda 13: Imagens e Componentes Diversos de Interface Gráfica." FontSize="12" TextColor="{StaticResource TextoSecundario}" />
+        </VerticalStackLayout>
+      </Border>
+
+      <Button Text="Voltar ao aplicativo" Clicked="OnVoltarClicked" BackgroundColor="{StaticResource VerdeAgua}" TextColor="White" FontAttributes="Bold" />
+    </VerticalStackLayout>
+  </ScrollView>
+</ContentPage>
